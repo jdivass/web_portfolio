@@ -36,6 +36,7 @@ export interface Project {
   technicalChallenges: string;
   technologies: string[];
   status: ProjectStatus;
+  repoURL?: string;
 }
 
 export interface SkillNode {
