@@ -71,9 +71,32 @@ export default function ProjectMissions() {
                           ))}
                         </div>
                       </div>
+                    {proj.repoURL && (
+                    <div className="col-span-2 pt-2 border-t border-violet-400/10">
+
+                        <a
+                        href={proj.repoURL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-[10px] tracking-[2px] transition-all duration-200 hover:scale-105"
+                        style={{
+                            background: "rgba(139,92,246,0.1)",
+                            border: "1px solid rgba(139,92,246,0.35)",
+                            color: "#8b5cf6",
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                        >
+                        <span>{"</>"}</span>
+                        VIEW REPOSITORY
+                        <span style={{ fontSize: 8, opacity: 0.6 }}>↗</span>
+                        </a>
+
+                    </div>
+                    )}
                     </div>
                   </motion.div>
                 )}
+                
               </AnimatePresence>
             </motion.div>
           );
