@@ -1,6 +1,6 @@
 # ◈ Cyber Portfolio
 
-Enlace al deploy: [text](https://jdivass.github.io/web_portfolio/)
+Enlace al deploy: [https://jdivass.github.io/web_portfolio/](https://jdivass.github.io/web_portfolio/)
 
 
 ## Reflexión
