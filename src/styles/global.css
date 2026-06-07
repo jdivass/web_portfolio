@@ -32,7 +32,7 @@ body {
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #080818; }
-::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.08); border-radius: 2px; }
 
 @keyframes ticker {
   0%   { transform: translateX(0); }

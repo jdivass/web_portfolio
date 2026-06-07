@@ -77,6 +77,81 @@ export default function IdentityProtocol() {
           <div style={{ fontFamily: F.hud, fontSize: 16, color: "#e2e8f0", letterSpacing: 1 }}>{profile.mission}</div>
         </div>
 
+        {/* About the Operator — spans 2 cols */}
+        <div style={{ gridColumn: "1 / -1", background: "rgba(10,12,30,0.7)",
+          border: "1px solid rgba(59,130,246,0.15)", borderRadius: 12, padding: 24 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#3b82f6",
+              boxShadow: "0 0 6px rgba(59,130,246,0.8)" }} />
+            <div style={{ fontFamily: F.mono, fontSize: 9, color: "#64748b", letterSpacing: 3 }}>
+              ABOUT THE OPERATOR
+            </div>
+          </div>
+          <p style={{ fontFamily: F.ui, fontSize: 15, color: "#94a3b8", lineHeight: 1.8, maxWidth: 1200 }}>
+            {profile.about}
+          </p>
+        </div>
+
+        {/* Core Attributes — spans 2 cols */}
+        <div style={{ gridColumn: "1 / -1", background: "rgba(10,12,30,0.7)",
+          border: "1px solid rgba(59,130,246,0.15)", borderRadius: 12, padding: 24 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(59,130,246,0.8)",
+              boxShadow: "0 0 6px rgba(59,130,246,0.8)" }} />
+            <div style={{ fontFamily: F.mono, fontSize: 9, color: "#64748b", letterSpacing: 3 }}>
+              CORE ATTRIBUTES
+            </div>
+            <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, rgba(59,130,246,0.8), transparent)" }} />
+            <span style={{ fontFamily: F.mono, fontSize: 9, color: "#475569", letterSpacing: 2 }}>
+              INTERPERSONAL STATS
+            </span>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 32px" }}>
+            {profile.coreAttributes.map((attr, i) => (
+              <motion.div key={attr.name}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.08 }}
+              >
+                {/* Label row */}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(59,130,246,0.8)",
+                      boxShadow: "0 0 4px rgba(139,92,246,0.8)" }} />
+                    <span style={{ fontFamily: F.ui, fontSize: 13, color: "#94a3b8" }}>{attr.name}</span>
+                  </div>
+                  <span style={{ fontFamily: F.mono, fontSize: 10, color: "rgba(59,130,246,0.8)" }}>
+                    {attr.value}
+                  </span>
+                </div>
+
+                {/* Progress bar track */}
+                <div style={{ height: 6, borderRadius: 3, background: "rgba(139,92,246,0.1)",
+                  border: "1px solid rgba(139,92,246,0.15)", overflow: "hidden" }}>
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${attr.value}%` }}
+                    transition={{ duration: 0.8, delay: i * 0.08, ease: "easeOut" }}
+                    style={{
+                      height: "100%", borderRadius: 3,
+                      background: `linear-gradient(90deg, #06b6d4)`,
+                      boxShadow: "0 0 8px rgba(139,92,246,0.6)",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Animated shimmer */}
+                    <div style={{
+                      position: "absolute", inset: 0,
+                      background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%)",
+                      animation: "ticker 2s linear infinite",
+                    }} />
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
         {/* Links — spans 2 cols */}
         <div style={{ gridColumn: "1 / -1", display: "flex", gap: 10, flexWrap: "wrap" as const }}>
           {profile.links.map((link, i) => (

@@ -23,6 +23,8 @@ export interface Profile {
   location: string;
   status: string;
   links: { label: string; url: string; icon: string }[];
+  about: string;
+  coreAttributes: { name: string; value: number }[];
 }
 
 export type ProjectStatus = "COMPLETED" | "IN_PROGRESS" | "CLASSIFIED";
