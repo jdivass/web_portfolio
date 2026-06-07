@@ -1,9 +1,4 @@
-interface Props {
-  icon: string;
-  color: string;
-  title: string;
-  sub: string;
-}
+interface Props { icon: string; color: string; title: string; sub: string; }
 
 function hexToRgb(hex: string) {
   const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -12,20 +7,33 @@ function hexToRgb(hex: string) {
 
 export default function SectionHeader({ icon, color, title, sub }: Props) {
   return (
-    <div className="flex items-start gap-3">
-      <div className="w-10 h-10 rounded-lg flex items-center justify-center text-lg flex-shrink-0"
-        style={{
-          background: `rgba(${hexToRgb(color)},0.12)`,
-          border: `1px solid ${color}40`,
-          color,
-        }}>
+    <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+      <div style={{
+        width: 40, height: 40, borderRadius: 8, flexShrink: 0,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        fontSize: 18,
+        background: `rgba(${hexToRgb(color)},0.12)`,
+        border: `1px solid ${color}40`,
+        color,
+      }}>
         {icon}
       </div>
       <div>
-        <div className="font-hud text-lg font-black text-slate-100 tracking-[3px]">{title}</div>
-        <div className="font-mono text-[9px] text-slate-500 tracking-[3px] mt-0.5">{sub}</div>
+        <div style={{
+          fontFamily: "'Orbitron', monospace",
+          fontSize: 18, fontWeight: 900,
+          color: "#e2e8f0", letterSpacing: 3,
+        }}>{title}</div>
+        <div style={{
+          fontFamily: "'Share Tech Mono', monospace",
+          fontSize: 9, color: "#64748b",
+          letterSpacing: 3, marginTop: 2,
+        }}>{sub}</div>
       </div>
-      <div className="flex-1 h-px mt-5" style={{ background: `linear-gradient(90deg, ${color}30, transparent)` }} />
+      <div style={{
+        flex: 1, height: 1, marginTop: 20,
+        background: `linear-gradient(90deg, ${color}30, transparent)`,
+      }} />
     </div>
   );
 }

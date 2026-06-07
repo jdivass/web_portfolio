@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface Props {
-  onComplete: () => void;
-}
+interface Props { onComplete: () => void; }
 
 const LINES = [
-  "INITIALIZING CYBER PORTFOLIO...",
+  "INITIALIZING CYBER OPERATIONS HUB...",
   "LOADING IDENTITY PROTOCOL...",
   "ESTABLISHING SECURE CONNECTION...",
   "MOUNTING PROJECT DATABASE...",
@@ -21,7 +19,7 @@ export default function BootSequence({ onComplete }: Props) {
 
   useEffect(() => {
     if (phase < LINES.length) {
-      const t = setTimeout(() => setPhase((p) => p + 1), phase === LINES.length - 1 ? 600 : 280);
+      const t = setTimeout(() => setPhase(p => p + 1), phase === LINES.length - 1 ? 600 : 280);
       return () => clearTimeout(t);
     } else {
       const t = setTimeout(onComplete, 600);
@@ -31,43 +29,48 @@ export default function BootSequence({ onComplete }: Props) {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] bg-[#04040f] flex flex-col items-center justify-center gap-2"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      style={{ position: "fixed", inset: 0, zIndex: 100, background: "#04040f",
+        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8 }}
     >
+      {/* Background grid */}
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
+        backgroundImage: "linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px)",
+        backgroundSize: "40px 40px" }} />
+
       <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="font-hud text-2xl font-black text-blue-400 tracking-[6px] mb-8"
-        style={{ textShadow: "0 0 30px rgba(59,130,246,0.8)" }}
+        initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5 }}
+        style={{ fontFamily: "'Orbitron', monospace", fontSize: 28, fontWeight: 800,
+          color: "#3b82f6", letterSpacing: 6, marginBottom: 32,
+          textShadow: "0 0 30px rgba(59,130,246,0.8)", position: "relative" }}
       >
         CYBER OPS HUB
       </motion.div>
 
-      <div className="w-[480px] max-w-[90vw] font-mono text-xs flex flex-col gap-1">
+      <div style={{ width: 480, maxWidth: "90vw", display: "flex", flexDirection: "column", gap: 4, position: "relative" }}>
         {LINES.slice(0, phase).map((line, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex gap-2"
-            style={{ color: i === phase - 1 ? "#3b82f6" : "rgba(100,116,139,0.7)" }}
+          <motion.div key={i}
+            initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
+            style={{ display: "flex", gap: 8, fontFamily: "'Share Tech Mono', monospace", fontSize: 12,
+              color: i === phase - 1 ? "#3b82f6" : "rgba(100,116,139,0.7)" }}
           >
-            <span className="text-emerald-400">{">"}</span>
+            <span style={{ color: "#10b981" }}>{">"}</span>
             <span>{line}</span>
-            {i === phase - 1 && <span className="animate-blink text-blue-400">█</span>}
+            {i === phase - 1 && (
+              <span style={{ color: "#3b82f6", animation: "blink 1s step-end infinite" }}>█</span>
+            )}
           </motion.div>
         ))}
       </div>
 
-      <div className="w-[480px] max-w-[90vw] mt-6 h-[2px] bg-blue-400/10 rounded">
+      {/* Progress bar */}
+      <div style={{ width: 480, maxWidth: "90vw", marginTop: 24, height: 2,
+        background: "rgba(59,130,246,0.15)", borderRadius: 1, position: "relative" }}>
         <motion.div
-          className="h-full bg-blue-400 rounded"
-          style={{ boxShadow: "0 0 8px rgba(59,130,246,0.8)" }}
           animate={{ width: `${(phase / LINES.length) * 100}%` }}
           transition={{ duration: 0.25 }}
+          style={{ height: "100%", background: "#3b82f6", borderRadius: 1,
+            boxShadow: "0 0 8px rgba(59,130,246,0.8)" }}
         />
       </div>
     </motion.div>

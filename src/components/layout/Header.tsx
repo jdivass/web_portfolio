@@ -17,34 +17,61 @@ export default function Header({ activeModuleId }: Props) {
   const activeModule = modules.find((m) => m.id === activeModuleId);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-blue-400/15 bg-[#04040f]/95 backdrop-blur-md px-6 py-3 flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <div className="relative">
-            <div className="w-2 h-2 rounded-full bg-emerald-400" style={{ boxShadow: "0 0 8px rgba(16,185,129,0.8)" }} />
+    <header style={{
+      position: "sticky", top: 0, zIndex: 40,
+      borderBottom: "1px solid rgba(59,130,246,0.15)",
+      background: "rgba(4,4,15,0.95)",
+      backdropFilter: "blur(12px)",
+      padding: "12px 24px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexShrink: 0,
+    }}>
+      {/* Left: brand */}
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", width: 16, height: 16 }}>
+            <div style={{
+              width: 8, height: 8, borderRadius: "50%", background: "#10b981",
+              boxShadow: "0 0 8px rgba(16,185,129,0.8)",
+            }} />
+            <div style={{
+              position: "absolute", inset: 0, borderRadius: "50%",
+              border: "1px solid rgba(16,185,129,0.4)",
+              animation: "pulse-ring 2s ease-out infinite",
+            }} />
           </div>
-          <span className="font-mono text-[10px] text-emerald-400 tracking-[2px]">ONLINE</span>
+          <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 10, color: "#10b981", letterSpacing: 2 }}>ONLINE</span>
         </div>
-        <span className="font-hud text-sm font-bold text-blue-400 tracking-[3px]"
-          style={{ textShadow: "0 0 15px rgba(59,130,246,0.5)" }}>
-          CYBER PORTFOLIO
+        <span style={{
+          fontFamily: "'Orbitron', monospace", fontSize: 14, fontWeight: 700,
+          color: "#3b82f6", letterSpacing: 3,
+          textShadow: "0 0 15px rgba(59,130,246,0.5)",
+        }}>
+          CYBER OPS HUB
         </span>
       </div>
 
+      {/* Center: active module */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeModuleId}
           initial={{ opacity: 0, y: -4 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 4 }}
-          className="font-hud text-[11px] tracking-[3px] uppercase"
-          style={{ color: activeModule?.color }}
+          style={{
+            fontFamily: "'Orbitron', monospace", fontSize: 11,
+            letterSpacing: 3, textTransform: "uppercase",
+            color: activeModule?.color,
+          }}
         >
           {activeModule?.label}
         </motion.div>
       </AnimatePresence>
 
-      <div className="font-mono text-[11px] text-slate-500 tracking-[2px]">
+      {/* Right: clock */}
+      <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 11, color: "#64748b", letterSpacing: 2 }}>
         {time.toLocaleTimeString("en-US", { hour12: false })}
       </div>
     </header>

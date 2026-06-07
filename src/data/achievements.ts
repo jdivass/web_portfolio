@@ -2,7 +2,7 @@ import type { Achievement } from "../types";
 
 export const achievements: Achievement[] = [
   {
-    id: "a1", icon: "⚙", rarity: "UNCOMMON", unlocked: true,
+    id: "a1", icon: "⚙", rarity: "COMMON", unlocked: true,
     title: "First Backend System",
     description: "Built and deployed my first complete backend system.",
     date: "2025",
