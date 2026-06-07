@@ -62,7 +62,7 @@ export default function IdentityProtocol() {
             </div>
           </div>
           <div style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid rgba(59,130,246,0.1)" }}>
-            <p style={{ fontFamily: F.ui, fontSize: 15, color: "#94a3b8", lineHeight: 1.7, maxWidth: 600 }}>{profile.bio}</p>
+            <p style={{ fontFamily: F.ui, fontSize: 15, color: "#94a3b8", lineHeight: 1.7, maxWidth: 950 }}>{profile.bio}</p>
           </div>
         </div>
 

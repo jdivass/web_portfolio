@@ -29,7 +29,7 @@ export default function Achievements() {
       <SectionHeader icon="◆" color="#f59e0b" title="ACHIEVEMENTS" sub={`${unlocked}/${achievements.length} UNLOCKED`} />
 
       <div style={{ marginTop: 24, display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(210px, 1fr))", gap: 14 }}>
+        gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))", gap: 14 }}>
         {achievements.map((ach, i) => {
           const rarity = RARITY[ach.rarity];
           return (
@@ -72,16 +72,16 @@ export default function Achievements() {
                 </span>
               </div>
 
-              <div style={{ fontFamily: F.hud, fontSize: 12, letterSpacing: 1, marginBottom: 6,
+              <div style={{ fontFamily: F.hud, fontSize: 15, letterSpacing: 1, marginBottom: 6,
                 color: ach.unlocked ? "#e2e8f0" : "#1e293b" }}>
                 {ach.unlocked ? ach.title : "???"}
               </div>
-              <div style={{ fontFamily: F.ui, fontSize: 11, lineHeight: 1.5,
+              <div style={{ fontFamily: F.ui, fontSize: 13, lineHeight: 1.5,
                 color: ach.unlocked ? "#64748b" : "#1e293b" }}>
                 {ach.unlocked ? ach.description : "Achievement locked"}
               </div>
               {ach.unlocked && ach.date && (
-                <div style={{ marginTop: 12, fontFamily: F.mono, fontSize: 9, color: "#334155", letterSpacing: 2 }}>
+                <div style={{ marginTop: 12, fontFamily: F.mono, fontSize: 9, color: "#f59e0b", letterSpacing: 2 }}>
                   UNLOCKED: {ach.date}
                 </div>
               )}

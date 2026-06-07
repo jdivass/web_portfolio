@@ -41,13 +41,13 @@ export default function ProjectMissions() {
               transition={{ delay: i * 0.08 }}
               style={{ borderRadius: 10, overflow: "hidden", cursor: "pointer",
                 background: "rgba(10,12,30,0.8)",
-                border: `1px solid ${isOpen ? "rgba(139,92,246,0.4)" : "rgba(59,130,246,0.12)"}`,
+                border: `1px solid ${isOpen ? "#3b82f6" : "rgba(59,130,246,0.12)"}`,
                 transition: "border-color 0.3s" }}
               onClick={() => setSelected(isOpen ? null : proj.id)}
             >
               {/* Header row */}
               <div style={{ padding: "16px 20px", display: "flex", alignItems: "center", gap: 16 }}>
-                <div style={{ fontFamily: F.mono, fontSize: 10, color: "#475569", minWidth: 90 }}>{proj.missionNumber}</div>
+                <div style={{ fontFamily: F.mono, fontSize: 10, color: "#3b82f6", minWidth: 90 }}>{proj.missionNumber}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: F.hud, fontSize: 14, color: "#e2e8f0", letterSpacing: 1 }}>{proj.name}</div>
                   <div style={{ fontFamily: F.ui, fontSize: 12, color: "#64748b", marginTop: 2 }}>{proj.objective}</div>
@@ -65,7 +65,7 @@ export default function ProjectMissions() {
                   <motion.div
                     initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}
-                    style={{ borderTop: "1px solid rgba(139,92,246,0.15)", overflow: "hidden" }}
+                    style={{ borderTop: "1px solid #3b82f6", overflow: "hidden" }}
                   >
                     <div style={{ padding: "20px 20px 20px 126px",
                       display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -90,8 +90,8 @@ export default function ProjectMissions() {
                             style={{ display: "inline-flex", alignItems: "center", gap: 8,
                               padding: "8px 16px", borderRadius: 8,
                               fontFamily: F.mono, fontSize: 10, letterSpacing: 2,
-                              background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.35)",
-                              color: "#8b5cf6", textDecoration: "none" }}>
+                              background: "rgba(245,158,11,0.1)", border: "1px solid #f59e0b",
+                              color: "#f59e0b", textDecoration: "none" }}>
                             <span>{"</>"}</span>
                             VIEW REPOSITORY
                             <span style={{ fontSize: 8, opacity: 0.6 }}>↗</span>

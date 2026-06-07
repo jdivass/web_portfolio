@@ -19,7 +19,7 @@ export default function SkillMatrix() {
       <SectionHeader icon="◫" color="#06b6d4" title="SKILL MATRIX" sub="CAPABILITY ASSESSMENT MAP" />
 
       <div style={{ marginTop: 24, display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
+        gridTemplateColumns: "repeat(auto-fit, minmax(400px, 2fr))", gap: 12 }}>
         {skills.map((branch, bi) => (
           <motion.div key={branch.id}
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -75,16 +75,16 @@ export default function SkillMatrix() {
 
       {/* Legend */}
       <div style={{ marginTop: 20, display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" as const }}>
-        <span style={{ fontFamily: F.mono, fontSize: 9, color: "#475569", letterSpacing: 2 }}>PROFICIENCY:</span>
+        <span style={{ fontFamily: F.mono, fontSize: 19, color: "#475569", letterSpacing: 2 }}>PROFICIENCY:</span>
         {LEVELS.map((label, l) => (
           <div key={label} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <span style={{ fontFamily: F.mono, fontSize: 12, color: "#475569" }}>{label}</span>
             <div style={{ display: "flex", gap: 2 }}>
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} style={{ width: 10, height: 3, borderRadius: 1,
+                <div key={i} style={{ width: 20, height: 6, borderRadius: 1,
                   background: i <= l ? "#3b82f6" : "rgba(59,130,246,0.15)" }} />
               ))}
             </div>
-            <span style={{ fontFamily: F.mono, fontSize: 9, color: "#475569" }}>{label}</span>
           </div>
         ))}
       </div>

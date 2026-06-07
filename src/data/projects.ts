@@ -1,16 +1,16 @@
 import type { Project } from "../types";
 
 export const projects: Project[] = [
-  {
+    {
     id: "001",
     missionNumber: "MISSION-001",
-    name: "Proffesor Recomendations",
-    objective: "Help students choose professors using data analysis and graph-based approaches.",
-    problem: "Students lacked structured information to compare professors.",
-    technicalChallenges: "Modeling relationships using Neo4j graphs and implementing efficient recommendation algorithms.",
-    technologies: ["Python", "Neo4j", "Graph Algorithms", "Data Analysis"],
+    name: "CanSat Telemetry System",
+    objective: "Develop software components for a CanSat system, including onboard module programming, the communication layer between the satellite prototype and the ground station, as well as the generation of a stereoscopic image. Participation in World CanSat 2026.",
+    problem: "Optimize telemetry and image transmission using radio frequency communication.",
+    technicalChallenges: "Real-time communication, limited hardware resources, data transmission reliability, and system integration.",
+    technologies: ["Embedded Systems (C++)", "Serial Communication", "Telemetry Systems", "Microcontroller Programming"],
     status: "COMPLETED",
-    repoURL: "https://github.com/MarceloDetlefsen/Back-Professor-Recommendation-System.git",
+    repoURL: "https://github.com/24750Montenegro/IK-SAT.git"
   },
   {
     id: "002",
@@ -78,16 +78,15 @@ export const projects: Project[] = [
     status: "COMPLETED",
     repoURL: "https://github.com/jdivass/MP_Project.git"
   },
-  {
+    {
     id: "008",
     missionNumber: "MISSION-008",
-    name: "CanSat Telemetry System",
-    objective: "Develop software components for a CanSat system, including onboard module programming, the communication layer between the satellite prototype and the ground station, as well as the generation of a stereoscopic image. Participation in World CanSat 2026.",
-    problem: "Optimize telemetry and image transmission using radio frequency communication.",
-    technicalChallenges: "Real-time communication, limited hardware resources, data transmission reliability, and system integration.",
-    technologies: ["Embedded Systems (C++)", "Serial Communication", "Telemetry Systems", "Microcontroller Programming"],
+    name: "Proffesor Recomendations",
+    objective: "Help students choose professors using data analysis and graph-based approaches.",
+    problem: "Students lacked structured information to compare professors.",
+    technicalChallenges: "Modeling relationships using Neo4j graphs and implementing efficient recommendation algorithms.",
+    technologies: ["Python", "Neo4j", "Graph Algorithms", "Data Analysis"],
     status: "COMPLETED",
-    repoURL: "https://github.com/24750Montenegro/IK-SAT.git"
+    repoURL: "https://github.com/MarceloDetlefsen/Back-Professor-Recommendation-System.git",
   },
-
 ];
