@@ -44,7 +44,7 @@ export default function BootSequence({ onComplete }: Props) {
           color: "#3b82f6", letterSpacing: 6, marginBottom: 32,
           textShadow: "0 0 30px rgba(59,130,246,0.8)", position: "relative" }}
       >
-        CYBER OPS HUB
+        PORTGOLIO
       </motion.div>
 
       <div style={{ width: 480, maxWidth: "90vw", display: "flex", flexDirection: "column", gap: 4, position: "relative" }}>

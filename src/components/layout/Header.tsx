@@ -49,7 +49,7 @@ export default function Header({ activeModuleId }: Props) {
           color: "#3b82f6", letterSpacing: 3,
           textShadow: "0 0 15px rgba(59,130,246,0.5)",
         }}>
-          CYBER OPS HUB
+          PORTGOLIO
         </span>
       </div>
 
